@@ -25,3 +25,29 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* Width */
+::-webkit-scrollbar {
+  width: 12px;
+  /* width of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #3e3c3c;
+  /* color of the track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  /* color of the scrollbar */
+  border-radius: 10px;
+  /* roundness of the scrollbar */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #cccccc;
+  /* color of the scrollbar on hover */
+}
