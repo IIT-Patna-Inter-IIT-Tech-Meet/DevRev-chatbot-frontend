@@ -41,16 +41,13 @@ const updatetool = () => {
 
         // console.log(JSON.stringify(requestBody))
 
-        const res = await fetch(
-            'https://b20c-14-139-194-118.ngrok.io/api/updatetool/',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ apiName, apiDesc, names }),
-            }
-        )
+        const res = await fetch('http://127.0.0.1:8000/api/updatetool/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ apiName, apiDesc, names }),
+        })
 
         const json = await res.json()
         console.log(json)
@@ -62,7 +59,7 @@ const updatetool = () => {
         >
             <div className="flex items-center justify-between w-full">
                 <Link href="/" className="text-white text-5xl ">
-                    Chat Bot (Update Tools)
+                    Chat Bot
                 </Link>
                 <div className="flex gap-4">
                     <Link
@@ -160,7 +157,7 @@ const updatetool = () => {
                         className="text-black text-xl bg-[#ff9e42] py-2 px-3 rounded-full mx-3 w-36"
                         onClick={handleSubmit}
                     >
-                        Add Tool
+                        Update Tool
                     </button>
                 </div>
             </div>

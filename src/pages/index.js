@@ -18,7 +18,7 @@ export default function Home() {
         setQuery('')
         setLoading(true)
         const res = await fetch(
-            'https://e856-14-139-194-118.ngrok.io/api/query/',
+            'https://78dd-14-139-194-118.ngrok.io/api/query/',
             {
                 method: 'POST',
                 headers: {
