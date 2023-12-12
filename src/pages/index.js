@@ -3,6 +3,7 @@ import { useState, useRef, useEffect } from 'react'
 import ChatBubble from '@/components/ChatBubble'
 import { IoSend } from 'react-icons/io5'
 import { Bars } from 'react-loader-spinner'
+import Link from 'next/link'
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -17,7 +18,7 @@ export default function Home() {
         setQuery('')
         setLoading(true)
         const res = await fetch(
-            'http://127.0.0.1:8000/api/query/',
+            'https://e856-14-139-194-118.ngrok.io/api/query/',
             {
                 method: 'POST',
                 headers: {
@@ -49,8 +50,14 @@ export default function Home() {
             className={`flex min-h-screen flex-col items-center justify-between px-24 pt-8 pb-2 ${inter.className} bg-[#272626]`}
         >
             {/* Create a loader when loading is true */}
-
-            <h1 className="text-white text-5xl ">Chat Bot</h1>
+            <div className='flex items-center justify-between w-full'>
+            <Link href='/' className="text-white text-5xl ">Chat Bot</Link>
+            <div className='flex gap-4'>
+                <Link href='/addtool' className='text-white text-xl bg-[#3e3c3c] py-2 px-3 rounded-full'>Add Tool</Link>
+                <Link href='/updatetool' className='text-white text-xl bg-[#3e3c3c] py-2 px-3 rounded-full'>Update Tool</Link>
+                <Link href='/removetool' className='text-white text-xl bg-[#3e3c3c] py-2 px-3 rounded-full'>Remove Tool</Link>
+            </div>
+            </div>
             <div
                 className="bg-[#3e3c3c] border-white border-6 rounded-lg w-full h-[80vh] overflow-x-auto"
                 ref={chatContainerRef}
