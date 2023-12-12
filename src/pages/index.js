@@ -17,7 +17,7 @@ export default function Home() {
         setQuery('')
         setLoading(true)
         const res = await fetch(
-            'https://bb08-14-139-194-118.ngrok.io/api/query/',
+            'http://127.0.0.1:8000/api/query/',
             {
                 method: 'POST',
                 headers: {
