@@ -6,7 +6,7 @@ import { a11yDark } from 'react-syntax-highlighter/dist/cjs/styles/prism'
 const ChatBubble = ({ text, code, isResponse }) => {
     return (
         <div
-            className={`flex ${isResponse ? 'justify-end' : 'justify-start'}
+            className={`flex ${isResponse ? 'justify-start' : 'justify-end'}
             } p-4`}
         >
             <div

@@ -91,7 +91,7 @@ export default function Home() {
                         <ChatBubble {...message} />
                     ))}
                 {loading && (
-                    <div className={`flex justify-end p-4`}>
+                    <div className={`flex justify-start p-4`}>
                         <div
                             className={`bg-${'green'} text-${'black'} rounded-lg p-4 max-w-4xl bg-[#272626]`}
                         >
