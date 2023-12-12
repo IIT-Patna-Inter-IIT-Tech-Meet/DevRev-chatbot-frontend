@@ -17,16 +17,13 @@ export default function Home() {
         messages.push({ text: query, isResponse: false })
         setQuery('')
         setLoading(true)
-        const res = await fetch(
-            'https://78dd-14-139-194-118.ngrok.io/api/query/',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ query }),
-            }
-        )
+        const res = await fetch('http://127.0.0.1:8000/api/query/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ query }),
+        })
         const json = await res.json()
         setResponse(json)
         console.log(json)

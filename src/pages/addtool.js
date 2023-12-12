@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
 import { FaPlusSquare } from 'react-icons/fa'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const addtool = () => {
     const [names, setNames] = useState([['','','']]) // Initial state with an empty name field
@@ -41,18 +43,27 @@ const addtool = () => {
 
         // console.log(JSON.stringify(requestBody))
 
-        const res = await fetch(
-            'http://127.0.0.1:8000/api/addtool/',
-            {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ apiName, apiDesc, names }),
-            }
-        )
+        const res = await fetch('http://127.0.0.1:8000/api/addtool/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ apiName, apiDesc, names }),
+        })
 
         const json = await res.json()
+        if(json.success==true){
+            toast('Tool Added Sucessfully', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
+            })
+        }
         console.log(json)
     }
 
@@ -60,6 +71,20 @@ const addtool = () => {
       <div
           className={`flex min-h-screen flex-col items-center justify-around px-24 pt-8 pb-2 bg-[#272626]`}
       >
+          <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop={false}
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+          />
+          {/* Same as */}
+          <ToastContainer />
           <div className="flex items-center justify-between w-full">
               <Link href="/" className="text-white text-5xl ">
                   Chat Bot
@@ -154,11 +179,13 @@ const addtool = () => {
                           />
                       </div>
                   ))}
-              <button className="text-black text-xl bg-[#ff9e42] py-2 px-3 rounded-full mx-3 w-36" onClick={handleSubmit}>
-                  Add Tool
-              </button>
+                  <button
+                      className="text-black text-xl bg-[#ff9e42] py-2 px-3 rounded-full mx-3 w-36"
+                      onClick={handleSubmit}
+                  >
+                      Add Tool
+                  </button>
               </div>
-
           </div>
       </div>
   )

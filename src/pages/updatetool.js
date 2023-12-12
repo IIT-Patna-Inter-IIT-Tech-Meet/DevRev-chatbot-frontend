@@ -1,6 +1,8 @@
 import Link from 'next/link'
 import { useState, useRef, useEffect } from 'react'
 import { FaPlusSquare } from 'react-icons/fa'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const updatetool = () => {
     const [names, setNames] = useState([['', '', '']]) // Initial state with an empty name field
@@ -50,6 +52,18 @@ const updatetool = () => {
         })
 
         const json = await res.json()
+        if (json.success == true) {
+            toast('Tool Updated Sucessfully', {
+                position: 'top-right',
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: 'dark',
+            })
+        }
         console.log(json)
     }
 
@@ -57,6 +71,18 @@ const updatetool = () => {
         <div
             className={`flex min-h-screen flex-col items-center justify-around px-24 pt-8 pb-2 bg-[#272626]`}
         >
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
             <div className="flex items-center justify-between w-full">
                 <Link href="/" className="text-white text-5xl ">
                     Chat Bot
