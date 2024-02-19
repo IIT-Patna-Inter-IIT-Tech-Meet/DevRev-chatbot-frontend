@@ -1,8 +1,8 @@
 
 # Chatbot Frontend
 
-A user friendly way to interact with the ml pipeline.
-
+A user friendly way to interact with the ml pipeline.  
+Link for the backend repo [Chatbot-Backend](https://github.com/IIT-Patna-Inter-IIT-Tech-Meet/DevRev-chatbot-backend)
 
 
 ## Run Locally
@@ -10,7 +10,7 @@ A user friendly way to interact with the ml pipeline.
 Go to the project directory
 
 ```bash
-  cd chatbot-frontend
+  cd chatbot-fronted
 ```
 
 Install the correct node version
